@@ -1,0 +1,99 @@
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+apply plugin: 'war'
+
+
+buildscript {
+	repositories {
+		maven { url "http://repo.spring.io/libs-release" }
+		mavenLocal()
+		mavenCentral()
+	}
+	dependencies {
+		classpath	'org.apache.maven.plugins:maven-compiler-plugin:2.3.2',
+					'org.apache.maven.plugins:maven-eclipse-plugin:2.9'
+//					'org.springframework.boot:spring-boot-gradle-plugin:1.0.1.RELEASE'
+	}
+}
+
+//war {
+//	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+// }
+
+//project.ext {
+//	//productName = 'rest'
+//	deployDir  = System.getenv()['DEPLOY_DIR']
+//	projectName = 'translator'/* default war plugin make it as root folder name"*/
+//}
+//
+//task deploy << {/* << ignore the function in normal build*/
+//	//println deployDir
+//	println "Cleaning tomcat webapps directory"
+//	ant.delete () {
+//		fileset(dir: file("${deployDir}"), includes: projectName + '*')  //deleting war
+//	}
+//	ant.delete(dir: "${deployDir}/" + projectName) //deleting folder
+//	println "Deploying web service"
+//	copy{
+//		from 'build/libs'
+//		into "${deployDir}"
+//		include '*.war'
+//	}
+//}
+
+repositories {
+	mavenCentral()
+	maven { url "http://repo.spring.io/libs-release" }
+}
+
+//configurations {
+//	providedRuntime
+//}
+
+
+dependencies {
+	compile			'org.springframework:spring-core:' + springVersion, 
+					'org.springframework:spring-web:' + springVersion,
+					'org.springframework:spring-webmvc:'  + springVersion,
+					'org.springframework:spring-jdbc:' + springVersion,
+//					'org.springframework:spring-test:' + springVersion,
+					'org.springframework:spring-beans:3.2.2.RELEASE',
+					'org.springframework:spring-context:3.2.2.RELEASE',
+					'org.springframework:spring-expression:3.2.2.RELEASE',
+					'org.springframework:spring-jdbc:3.2.2.RELEASE',
+					'org.springframework:spring-tx:3.2.2.RELEASE',
+					'commons-logging:commons-logging:1.0.4',
+					'jstl:jstl:1.1.2',
+					'taglibs:standard:1.1.2',
+					'org.springframework:spring-ibatis:2.0.8',
+//					'javax.servlet:servlet-api:2.5',
+//					'javax.servlet.jsp:jsp-api:2.2',
+//					'javax.servlet:jstl:1.2',
+//					'javax.validation:validation-api:1.0.0.GA',
+					'mysql:mysql-connector-java:5.1.28',
+					
+//					'com.googlecode.json-simple:json-simple:1.1.1',
+//					'com.google.code.gson:gson:2.2.4',		
+					'org.slf4j:slf4j-api:1.7.5',
+					'org.slf4j:slf4j-log4j12:1.7.5',
+					'log4j:log4j:1.2.17'
+//					'commons-dbcp:commons-dbcp:1.4',
+//					'com.h2database:h2:1.3.166',
+//					'org.hibernate:hibernate-validator:4.2.0.Final',
+//                  'org.springframework.boot:spring-boot-starter-web',
+//					'org.thymeleaf:thymeleaf-spring4',
+//					'org.springframework.boot:spring-boot-starter-tomcat',
+//					'org.springframework.boot:spring-boot-starter-thymeleaf',
+//					'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect',
+//					'org.codehaus.jackson:jackson-mapper-asl:' + jacksonVersion
+					
+	testCompile		'junit:junit:4.11',
+					'org.testng:testng:6.8.7'
+				
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '1.11'
+}
