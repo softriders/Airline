@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kasun.dao.TravelDao;
+import com.kasun.domain.FlightSerchResult;
+import com.kasun.domain.SearchTravel;
 import com.kasun.domain.Travel;
 
 public class TravelServiceImpl implements TravelService{
@@ -39,6 +41,11 @@ public class TravelServiceImpl implements TravelService{
 	public void updateData(Travel travel) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<FlightSerchResult> getSerchedTravelList(SearchTravel searchTravel) {
+		return traveldao.getSerchedResultList(searchTravel);
 	}
 
 }

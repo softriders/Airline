@@ -34,8 +34,6 @@ td {
 		<br /> <br /> <br /> <b>Travel
 			List | Smart Fly </b><br /> <br />
 			
-		
-
 		<table border="1">
 			<tr>
 				<td class="heading">Travel ID</td>
@@ -44,6 +42,8 @@ td {
 				<td class="heading">Going To</td>
 				<td class="heading">Departure Date</td>
 				<td class="heading">Departure Time</td>
+				<td class="heading">Price Per Adult</td>
+				<td class="heading">Price Per Child</td>
 				<td class="heading">Edit</td>
 				<td class="heading">Delete</td>
 			</tr>
@@ -55,11 +55,13 @@ td {
 					<td>${travel.going_to}</td>
 					<td>${travel.departure_date}</td>
 					<td>${travel.departure_time}</td>
+					<td>${travel.pricePerAdult}</td>
+					<td>${travel.pricePerChild}</td>
 					<td><a href="edit?id=${travel.travel_id}">Edit</a></td>
 					<td><a href="delete?id=${travel.travel_id}">Delete</a></td>
 				</tr>
 			</c:forEach>
-			<tr><td colspan="7"><a href="registertravel">Add a Travel</a></td></tr>
+			<tr><td colspan="9"><a href="registertravel">Add a Travel</a></td></tr>
 		</table>
 
 	</center>

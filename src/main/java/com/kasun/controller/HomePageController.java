@@ -10,7 +10,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kasun.domain.SerchedTravel;
+import com.kasun.domain.FlightSerchResult;
+import com.kasun.domain.SearchTravel;
 import com.kasun.domain.Travel;
 import com.kasun.domain.User;
 import com.kasun.services.TravelService;
@@ -27,6 +27,9 @@ import com.kasun.services.UserService;
 
 @Controller
 public class HomePageController {
+	
+	public static int children;
+	public static int adults;
 
 	@Autowired
 	UserService userService;
@@ -127,12 +130,24 @@ public class HomePageController {
 
 	}
 
-	@RequestMapping("/Test/serchFlights")
-	public ModelAndView serchFlights(@ModelAttribute SerchedTravel serchedTravel) {
+	@RequestMapping("/serchFlights")
+	public ModelAndView serchFlights(@ModelAttribute SearchTravel searchTravel) {
+		adults = searchTravel.adults;
+		children= searchTravel.children;
+		
 		System.out.println("Serching Travels");
-		List<Travel> travelList = travelService.getTravelList();
-		return new ModelAndView("travelList", "travelList", travelList);
+		System.out.println("searchTravel going to: "
+				+ searchTravel.getGoingto());
+		List<FlightSerchResult> flightSerchResultList = travelService
+				.getSerchedTravelList(searchTravel);
 
+		FlightSerchResult[] trvls = flightSerchResultList
+				.toArray(new FlightSerchResult[flightSerchResultList.size()]);
+
+		System.out.println("trvl: " + trvls[0].getFlight_id());
+
+		return new ModelAndView("flightSerchResultList",
+				"flightSerchResultList", flightSerchResultList);
 	}
 
 	@RequestMapping("/edit")

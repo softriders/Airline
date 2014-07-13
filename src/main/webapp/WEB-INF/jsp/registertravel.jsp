@@ -65,6 +65,14 @@ td {
 						<td><form:input  path="departure_time"/> </td>
 					</tr>
 					<tr>
+						<td>Price For Adult :</td>
+						<td><form:input  path="pricePerAdult"/> </td>
+					</tr>
+					<tr>
+						<td>Price For Child :</td>
+						<td><form:input  path="pricePerChild"/> </td>
+					</tr>
+					<tr>
 						<td>&nbsp;</td>
 						<td><input type="submit" value="Save" /></td>
 					</tr>

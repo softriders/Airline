@@ -34,7 +34,7 @@
 	
 	<bean id="travelDao" class="com.kasun.dao.TravelDaoImpl" />
 	<bean id="travelService" class="com.kasun.services.TravelServiceImpl" />
-	
+				
 	<!-- declare datasource bean -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />

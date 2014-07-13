@@ -7,13 +7,13 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.kasun.domain.FlightSerchResult;
 import com.kasun.domain.Travel;
-import com.kasun.domain.User;
 
-public class TravelRowMapper implements RowMapper<Travel>{
-	
+public class FlightSerchResultRowMapper  implements RowMapper<FlightSerchResult>{
+
 	@Override
-	public Travel mapRow(ResultSet resultSet, int line) throws SQLException {
+	public FlightSerchResult mapRow(ResultSet rs, int rowNum)
+			throws SQLException {
 		TravelExtractor travelExtractor = new TravelExtractor();
-		return travelExtractor.extractData(resultSet);
+		return travelExtractor.extractSerchResult(rs);
 	}
 }

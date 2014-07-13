@@ -8,6 +8,8 @@ public class Travel {
 	public String going_to;
 	public String departure_date;
 	public String departure_time;
+	public int pricePerAdult;
+	public int pricePerChild;
 
 	public Travel() {
 		super();
@@ -15,7 +17,8 @@ public class Travel {
 	}
 
 	public Travel(String travel_id, String flight_num, String leaving_from,
-			String going_to, String departure_date, String departure_time) {
+			String going_to, String departure_date, String departure_time,
+			int pricePerAdult, int pricePerChild) {
 		super();
 		this.travel_id = travel_id;
 		this.flight_num = flight_num;
@@ -23,6 +26,8 @@ public class Travel {
 		this.going_to = going_to;
 		this.departure_date = departure_date;
 		this.departure_time = departure_time;
+		this.pricePerAdult = pricePerAdult;
+		this.pricePerChild = pricePerChild;
 	}
 
 	public String getTravel_id() {
@@ -71,6 +76,22 @@ public class Travel {
 
 	public void setDeparture_time(String departure_time) {
 		this.departure_time = departure_time;
+	}
+
+	public int getPricePerAdult() {
+		return pricePerAdult;
+	}
+
+	public void setPricePerAdult(int pricePerAdult) {
+		this.pricePerAdult = pricePerAdult;
+	}
+
+	public int getPricePerChild() {
+		return pricePerChild;
+	}
+
+	public void setPricePerChild(int pricePerChild) {
+		this.pricePerChild = pricePerChild;
 	}
 
 }

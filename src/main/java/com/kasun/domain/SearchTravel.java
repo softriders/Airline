@@ -1,6 +1,6 @@
 package com.kasun.domain;
 
-public class SerchedTravel {
+public class SearchTravel {
 	
 	public String departure;
 	public String goingto;
@@ -10,11 +10,11 @@ public class SerchedTravel {
 	public int children = 0;
 	public int adults;
 	
-	public SerchedTravel() {
+	public SearchTravel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public SerchedTravel(String departure, String goingto, String jurnytype,
+	public SearchTravel(String departure, String goingto, String jurnytype,
 			String departuredate, String returndate, int children, int adults) {
 		super();
 		this.departure = departure;
