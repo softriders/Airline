@@ -141,11 +141,6 @@ public class HomePageController {
 		List<FlightSerchResult> flightSerchResultList = travelService
 				.getSerchedTravelList(searchTravel);
 
-		FlightSerchResult[] trvls = flightSerchResultList
-				.toArray(new FlightSerchResult[flightSerchResultList.size()]);
-
-		System.out.println("trvl: " + trvls[0].getFlight_id());
-
 		return new ModelAndView("flightSerchResultList",
 				"flightSerchResultList", flightSerchResultList);
 	}
