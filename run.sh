@@ -1,6 +1,6 @@
 gradle clean build
 cd ~/apps/Tomcat7/webapps/
-rm Test.war
-rm -f Test
-cd media/KASUN/Education/FinalYear/Database/Project/MyProj/Reservation/SpringJDBCTemplate/Test/build/libs/
-cp Test.war ~/apps/Tomcat7/webapps/
+rm Airline.war
+rm -f Airline
+cd ~/Desktop/All_Projects/Airline/build/libs/
+cp Airline.war ~/apps/Tomcat7/webapps/

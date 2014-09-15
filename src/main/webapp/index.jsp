@@ -37,7 +37,7 @@
         <h1 class="alert alert-info">Testing</h1>
         <p class="alert alert-warning">Testing Paragraph</p>
 
-        <form action="/Test/getTravelList" method="post" role="form">
+        <form action="/Airline/getTravelList" method="post" role="form">
             <button type="submit" class="btn btn-default">List of All Travel</button>
         </form>
 
