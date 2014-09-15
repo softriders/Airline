@@ -44,7 +44,7 @@
         <div>
             <h3>Enter Details</h3>
 
-            <form action="/Test/serchFlights" modelAttribute="searchTravel" method="post" class="form-horizontal" role="form">
+            <form action="/Airline/serchFlights" modelAttribute="searchTravel" method="post" class="form-horizontal" role="form">
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Departure From</label>
