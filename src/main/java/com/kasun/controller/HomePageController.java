@@ -20,9 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kasun.dao.TravelDaoImpl;
 import com.kasun.domain.FlightSerchResult;
+import com.kasun.domain.Passenger;
 import com.kasun.domain.SearchTravel;
 import com.kasun.domain.Travel;
 import com.kasun.domain.User;
+import com.kasun.services.PassengerService;
 import com.kasun.services.TravelService;
 import com.kasun.services.UserService;
 
@@ -42,7 +44,10 @@ public class HomePageController {
 
 	@Autowired
 	TravelService travelService;
-
+	
+	@Autowired
+	PassengerService passengerService;
+	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -234,4 +239,15 @@ public class HomePageController {
 		userService.deleteData(id);
 		return "redirect:/getList";
 	}
+	
+	@RequestMapping("/insertpassenger")
+	public String inserPassenger(@ModelAttribute Passenger passenger) {
+		System.out.println("Passenger_ID: Before Null check " + passenger.getId());
+		if (passenger != null) {
+			passengerService.insertData(passenger);
+		}
+		return "redirect:/finalpage";
+	}
+	
+	
 }

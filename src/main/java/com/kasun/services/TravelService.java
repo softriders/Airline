@@ -18,8 +18,6 @@ public interface TravelService {
 
 	public Travel getTravel(String travel_id);
 	
-	
-
 	public void updateData(Travel travel);
 
 }
