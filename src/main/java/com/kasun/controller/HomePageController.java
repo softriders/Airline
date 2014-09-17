@@ -210,7 +210,8 @@ public class HomePageController {
 	
 	@RequestMapping("/updatetravel")
 	public String updateTravel(@ModelAttribute Travel travel) {
-		log.info("travel update in controller");
+		log.info("travel update in controller, travel id: "+travel.getTravel_id());
+		log.info("travel update in controller, flight id: "+travel.getFlight_num());
 		travelService.updateData(travel);
 		return "redirect:/getTravelList";
 	}

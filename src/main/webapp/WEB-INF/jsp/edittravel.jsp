@@ -105,7 +105,6 @@ td {
 						</td>
 					</tr>
 				</table>
-				<form:hidden path="travel_id" value="${map.travel.travel_id}" />
 
 			</form:form>
 		</div>

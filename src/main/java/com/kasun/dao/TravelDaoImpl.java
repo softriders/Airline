@@ -59,7 +59,9 @@ public class TravelDaoImpl implements TravelDao {
 
 	@Override
 	public void updateData(Travel travel) {
-		// TODO Auto-generated method stub
+		
+		log.info("TRAVEL ID is "+travel.getTravel_id());
+
 		String sql = "UPDATE travel set travel_id = ?,flight_num = ?, leaving_from = ?, "
 				+ "going_to = ?,departure_date = ?,departure_time = ?,"
 				+ " price_per_adult = ?, price_per_child = ? where travel_id = ?";
@@ -72,7 +74,7 @@ public class TravelDaoImpl implements TravelDao {
 						travel.getDeparture_date(), travel.getDeparture_time(),
 						travel.getPricePerAdult(), travel.getPricePerChild(),travel.getTravel_id() });
 		
-		log.info("UpdateQuary Exicuted: travel ID "+travel.travel_id+" travel dept date: "+travel.getDeparture_date());
+		log.info("UpdateQuary Exicuted: travel ID "+travel.getTravel_id()+" travel dept date: "+travel.getDeparture_date());
 	}
 
 	@Override
