@@ -60,7 +60,6 @@ public class UserDaoImpl implements UserDao {
 				sql,
 				new Object[] { user.getFirstName(), user.getLastName(),
 						user.getGender(), user.getCity(), user.getUserId() });
-
 	}
 
 	@Override

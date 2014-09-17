@@ -20,8 +20,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TravelDaoImpl implements TravelDao {
-	
-	private static final Logger log = LoggerFactory.getLogger(TravelDaoImpl.class);
+
+	private static final Logger log = LoggerFactory
+			.getLogger(TravelDaoImpl.class);
 
 	@Autowired
 	DataSource dataSource;
@@ -29,10 +30,11 @@ public class TravelDaoImpl implements TravelDao {
 	@Override
 	public void insertData(Travel travel) {
 		String sql = "INSERT INTO travel "
-				+ "(travel_id,flight_num,leaving_from, going_to,departure_date,departure_time,price_per_adult,price_per_child)"
+				+ "(travel_id,flight_num,leaving_from, going_to,departure_date,"
+				+ "departure_time,price_per_adult,price_per_child)"
 				+ " VALUES ( ?, ?, ?, ?, ?, ?, ?,?)";
 
-		System.out.println("sql: " + sql);
+		log.info("sql: " + sql);
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
@@ -42,7 +44,6 @@ public class TravelDaoImpl implements TravelDao {
 						travel.getLeaving_from(), travel.getGoing_to(),
 						travel.getDeparture_date(), travel.getDeparture_time(),
 						travel.getPricePerAdult(), travel.getPricePerChild() });
-
 	}
 
 	@Override
@@ -54,19 +55,30 @@ public class TravelDaoImpl implements TravelDao {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		travelList = jdbcTemplate.query(sql, new TravelRowMapper());
 		return travelList;
-
 	}
 
 	@Override
 	public void updateData(Travel travel) {
 		// TODO Auto-generated method stub
+		String sql = "UPDATE travel set travel_id = ?,flight_num = ?, leaving_from = ?, "
+				+ "going_to = ?,departure_date = ?,departure_time = ?,"
+				+ " price_per_adult = ?, price_per_child = ? where travel_id = ?";
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
+		jdbcTemplate.update(
+				sql,
+				new Object[] { travel.getTravel_id(), travel.getFlight_num(),
+						travel.getLeaving_from(), travel.getGoing_to(),
+						travel.getDeparture_date(), travel.getDeparture_time(),
+						travel.getPricePerAdult(), travel.getPricePerChild(),travel.getTravel_id() });
+		
+		log.info("UpdateQuary Exicuted: travel ID "+travel.travel_id+" travel dept date: "+travel.getDeparture_date());
 	}
 
 	@Override
 	public void deleteData(String travel_id) {
-		String sql = "delete from travel where travel_id='"+travel_id+"'";
-		log.info("Quary : "+sql);
+		String sql = "delete from travel where travel_id='" + travel_id + "'";
+		log.info("Quary : " + sql);
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		jdbcTemplate.update(sql);
 	}
@@ -74,18 +86,22 @@ public class TravelDaoImpl implements TravelDao {
 	@Override
 	public Travel getTravel(String travel_id) {
 		List<Travel> travelList = new ArrayList<Travel>();
-		String sql = "select * from travel where travel_id= '" + travel_id+"'";
+		String sql = "select * from travel where travel_id= '" + travel_id
+				+ "'";
+		log.info("Quary: " + sql);
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		travelList = jdbcTemplate.query(sql, new TravelRowMapper());
 		return travelList.get(0);
 	}
 
 	@Override
-	public List<FlightSerchResult> getSerchedResultList(SearchTravel searchTravel) {
+	public List<FlightSerchResult> getSerchedResultList(
+			SearchTravel searchTravel) {
 		List travelList = new ArrayList();
 		String sql = "select * from travel where leaving_from='"
-				+ searchTravel.getDeparture()+ "' AND going_to='" + searchTravel.getGoingto()
-				+ "' AND departure_date='" + searchTravel.getDeparturedate() + "'";
+				+ searchTravel.getDeparture() + "' AND going_to='"
+				+ searchTravel.getGoingto() + "' AND departure_date='"
+				+ searchTravel.getDeparturedate() + "'";
 		System.out.println("sql: " + sql);
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		travelList = jdbcTemplate.query(sql, new FlightSerchResultRowMapper());

@@ -45,6 +45,7 @@ public class TravelServiceImpl implements TravelService{
 	@Override
 	public void updateData(Travel travel) {
 		// TODO Auto-generated method stub
+		traveldao.updateData(travel);
 		
 	}
 

@@ -130,7 +130,7 @@ public class HomePageController {
 
 	@RequestMapping("/getTravelList")
 	public ModelAndView getTravelLIst() {
-		System.out.println("getting Travel List");
+		log.info("getting Travel List");
 		List<Travel> travelList = travelService.getTravelList();
 		return new ModelAndView("travelList", "travelList", travelList);
 
@@ -206,6 +206,13 @@ public class HomePageController {
 	public String updateUser(@ModelAttribute User user) {
 		userService.updateData(user);
 		return "redirect:/getList";
+	}
+	
+	@RequestMapping("/updatetravel")
+	public String updateTravel(@ModelAttribute Travel travel) {
+		log.info("travel update in controller");
+		travelService.updateData(travel);
+		return "redirect:/getTravelList";
 	}
 	
 	@RequestMapping("/deletetravel")
