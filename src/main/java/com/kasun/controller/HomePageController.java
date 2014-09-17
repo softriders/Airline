@@ -141,8 +141,8 @@ public class HomePageController {
 		adults = searchTravel.adults;
 		children= searchTravel.children;
 		
-		System.out.println("Serching Travels");
-		System.out.println("searchTravel going to: "
+		log.info("Serching Travels");
+		log.info("searchTravel going to: "
 				+ searchTravel.getGoingto());
 		List<FlightSerchResult> flightSerchResultList = travelService
 				.getSerchedTravelList(searchTravel);
@@ -206,6 +206,11 @@ public class HomePageController {
 	public String updateUser(@ModelAttribute User user) {
 		userService.updateData(user);
 		return "redirect:/getList";
+	}
+	
+	@RequestMapping("/buyTicket")
+	public String buyTicket(@ModelAttribute User user) {
+		return "buyTicket";
 	}
 	
 	@RequestMapping("/updatetravel")
