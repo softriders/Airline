@@ -33,13 +33,13 @@ public class TravelServiceImpl implements TravelService{
 
 	@Override
 	public void deleteData(String travel_id) {
+		log.info("deleteData : TravelService");
 		traveldao.deleteData(travel_id);
 	}
 
 	@Override
 	public Travel getTravel(String travel_id) {
-		// TODO Auto-generated method stub
-		return null;
+		return traveldao.getTravel(travel_id);
 	}
 
 	@Override

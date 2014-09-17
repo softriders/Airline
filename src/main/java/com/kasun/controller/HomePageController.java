@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kasun.dao.TravelDaoImpl;
 import com.kasun.domain.FlightSerchResult;
 import com.kasun.domain.SearchTravel;
 import com.kasun.domain.Travel;
@@ -25,8 +26,13 @@ import com.kasun.domain.User;
 import com.kasun.services.TravelService;
 import com.kasun.services.UserService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Controller
 public class HomePageController {
+	
+	private static final Logger log = LoggerFactory.getLogger(HomePageController.class);
 	
 	public static int children;
 	public static int adults;
@@ -169,17 +175,50 @@ public class HomePageController {
 		return new ModelAndView("edit", "map", map);
 
 	}
+	
+	@RequestMapping("/edittravel")
+	public ModelAndView editTravel(@RequestParam String id,
+			@ModelAttribute Travel travel) {
+
+		travel = travelService.getTravel(id);
+		
+		log.info("Selected Travel ID: "+travel.travel_id);
+		
+		log.info("Travel Path "+travel.leaving_from+" from going to "+travel.going_to);
+
+		List<String> cityList = new ArrayList<String>();
+
+		cityList.add("Colombo(SRI)");
+		cityList.add("Maththala(SRI)");
+		cityList.add("Cidny(AUS)");
+		cityList.add("London(ENG)");
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("cityList", cityList);
+		map.put("travel", travel);
+
+		return new ModelAndView("edittravel", "map", map);
+
+	}
 
 	@RequestMapping("/update")
 	public String updateUser(@ModelAttribute User user) {
 		userService.updateData(user);
 		return "redirect:/getList";
 	}
+	
+	@RequestMapping("/deletetravel")
+	public String deleteTravel(@RequestParam String id) {
+		log.info("id = " + id);
+		travelService.deleteData(id);
+		return "redirect:/getTravelList";
+	}
 
 	@RequestMapping("/delete")
-	public String deleteUser(@RequestParam String travel_id) {
-		System.out.println("id = " + travel_id);
-		travelService.deleteData(travel_id);
+	public String deleteUser(@RequestParam String id) {
+		log.info("id = " + id);
+		userService.deleteData(id);
 		return "redirect:/getList";
 	}
 }

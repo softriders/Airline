@@ -8,7 +8,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import com.kasun.domain.User;
 import com.kasun.jdbc.UserRowMapper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class UserDaoImpl implements UserDao {
+	
+	private static final Logger log = LoggerFactory.getLogger(UserDaoImpl.class);
 
 	@Autowired
 	DataSource dataSource;
@@ -40,9 +45,9 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void deleteData(String id) {
 		String sql = "delete from user where user_id=" + id;
+		
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		jdbcTemplate.update(sql);
-
 	}
 
 	@Override
