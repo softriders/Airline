@@ -177,9 +177,9 @@ public class HomePageController {
 	}
 
 	@RequestMapping("/delete")
-	public String deleteUser(@RequestParam String id) {
-		System.out.println("id = " + id);
-		userService.deleteData(id);
+	public String deleteUser(@RequestParam String travel_id) {
+		System.out.println("id = " + travel_id);
+		travelService.deleteData(travel_id);
 		return "redirect:/getList";
 	}
 }

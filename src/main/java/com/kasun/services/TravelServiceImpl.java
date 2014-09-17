@@ -5,11 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kasun.dao.TravelDao;
+import com.kasun.dao.UserDaoImpl;
 import com.kasun.domain.FlightSerchResult;
 import com.kasun.domain.SearchTravel;
 import com.kasun.domain.Travel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class TravelServiceImpl implements TravelService{
+	
+	private static final Logger log = LoggerFactory.getLogger(TravelServiceImpl.class);
 	
 	@Autowired
 	TravelDao traveldao;
@@ -27,8 +33,7 @@ public class TravelServiceImpl implements TravelService{
 
 	@Override
 	public void deleteData(String travel_id) {
-		// TODO Auto-generated method stub
-		
+		traveldao.deleteData(travel_id);
 	}
 
 	@Override

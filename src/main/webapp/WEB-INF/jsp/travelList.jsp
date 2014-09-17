@@ -57,8 +57,8 @@ td {
 					<td>${travel.departure_time}</td>
 					<td>${travel.pricePerAdult}</td>
 					<td>${travel.pricePerChild}</td>
-					<td><a href="edit?id=${travel.travel_id}">Edit</a></td>
-					<td><a href="delete?id=${travel.travel_id}">Delete</a></td>
+					<td><a href="edit?travel_id=${travel.travel_id}">Edit</a></td>
+					<td><a href="delete?travel_id=${travel.travel_id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 			<tr><td colspan="9"><a href="registertravel">Add a Travel</a></td></tr>

@@ -14,7 +14,12 @@ import com.kasun.domain.Travel;
 import com.kasun.jdbc.FlightSerchResultRowMapper;
 import com.kasun.jdbc.TravelRowMapper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class TravelDaoImpl implements TravelDao {
+	
+	private static final Logger log = LoggerFactory.getLogger(TravelDaoImpl.class);
 
 	@Autowired
 	DataSource dataSource;
@@ -43,7 +48,7 @@ public class TravelDaoImpl implements TravelDao {
 
 		List travelList = new ArrayList();
 		String sql = "select * from travel";
-		System.out.println("sql: " + sql);
+		log.info("sql: " + sql);
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		travelList = jdbcTemplate.query(sql, new TravelRowMapper());
 		return travelList;
@@ -58,8 +63,10 @@ public class TravelDaoImpl implements TravelDao {
 
 	@Override
 	public void deleteData(String travel_id) {
-		// TODO Auto-generated method stub
-
+		String sql = "delete from travel where travel_id="+travel_id+";";
+		log.info("Quary : "+sql);
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		jdbcTemplate.update(sql);
 	}
 
 	@Override
