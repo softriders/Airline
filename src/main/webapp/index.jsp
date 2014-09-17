@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Departure From</label>
                     <div class="col-sm-3">
-                        <select name="departure" id="origin" class="col-sm-12">
+                        <select name="departure" id="origin" class="col-sm-12 form-control">
                             <option selected value="Colombo(SRI)">Colombo(SRI)</option>
                             <option value="Maththala(SRI)">Maththala(SRI)</option>
                             <option value="Cidny(AUS)">Cidny(AUS)</option>
@@ -60,7 +60,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Going To</label>
                     <div class="col-sm-3">
-                        <select name="goingto" id="origin" class="col-sm-12">
+                        <select name="goingto" id="origin" class="col-sm-12 form-control">
                             <option selected value="Colombo(SRI)">Colombo(SRI)</option>
                             <option value="Maththala(SRI)">Maththala(SRI)</option>
                             <option value="Cidny(AUS)">Cidny(AUS)</option>
@@ -72,10 +72,13 @@
                     <label class="col-sm-2 control-label">Journey Type</label>
                     <div class="col-sm-3">
                         <div class="radio">
-                            <label class="col-sm-6" style="font-size:18px">
-                                <input name="journeyType" value="Return" type="radio" checked="checked"> Return</label>
+                            
                             <label class="col-sm-6" style="font-size:18px"> 
-                                <input name="journeyType" value="Oneway" type="radio"> One Way</label>
+                                <input name="journeyType" value="Oneway" type="radio"> One Way
+							</label>
+							<label class="col-sm-6" style="font-size:18px">
+                                <input name="journeyType" value="Return" type="radio" checked="checked"> Return
+							</label>
                         </div>
                     </div>
                 </div>
@@ -94,13 +97,13 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Children</label>
                     <div class="col-sm-3">
-                        <input name="children" type="number" class="form-control"/>
+                        <input name="children" type="number" min="0" class="form-control"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Adults</label>
                     <div class="col-sm-3">
-                        <input name="adults" type="number" class="form-control"/>
+                        <input name="adults" type="number" min="0" class="form-control"/>
                     </div>
                 </div>
                 <div class="form-group">
