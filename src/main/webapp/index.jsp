@@ -83,10 +83,10 @@
                         <div class="radio">
                             
                             <label class="col-sm-5" style="font-size:18px"> 
-                                <input name="journeyType" value="Oneway" type="radio"> One Way
+                                <input name="journeyType" value="Oneway" type="radio" checked="checked"> One Way
 							</label>
 							<label class="col-sm-5" style="font-size:18px">
-                                <input name="journeyType" value="Return" type="radio" checked="checked"> Return
+                                <input name="journeyType" value="Return" type="radio"> Return
 							</label>
                         </div>
                     </div>
