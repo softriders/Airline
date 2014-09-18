@@ -5,9 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.kasun.domain.FlightSerchResult;
 import com.kasun.domain.Travel;
-import com.kasun.domain.User;
 
 public class TravelRowMapper implements RowMapper<Travel>{
 	

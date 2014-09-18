@@ -24,17 +24,23 @@
 	<div style="text-align:center" class="col-md-4 col-md-offset-4 well">
 	
 			<form:form method="post" action="/insertpassenger" modelAttribute="passenger">
-	
-				ID Number: <input type="text" name="id"><br>
-				
-				Full Name: <input type="text" name="name"><br>
-				
-				Address: <input type="text" name="address"><br>
-				
-				TP Number: <input type="text" name="mobile_num"><br>
-				
-				Bank Card Number: <input type="text" name=""><br>
-				
+		<table>
+		<tr>
+				<td>ID Number:</td> <td><input type="text" name="id"></td>	
+		</tr>
+		<tr>
+				<td>Full Name:</td> <td><input type="text" name="name"></td>
+		</tr>
+		<tr>
+				<td>Address: </td><td><input type="text" name="address"></td>
+		</tr>
+		<tr>
+				<td>TP Number:</td><td> <input type="text" name="mobile_num"><td>
+		</tr>
+		<tr>
+				<td>Bank Card Number:</td><td> <input type="text" name=""></td>
+		</tr>
+			</table>
 				 <input type="submit" value="Submit">
 				
 			</form:form>

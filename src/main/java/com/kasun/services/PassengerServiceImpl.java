@@ -1,5 +1,7 @@
 package com.kasun.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kasun.dao.PassengerDao;
@@ -26,6 +28,11 @@ public class PassengerServiceImpl implements PassengerService {
 	public void updatePassenger(Passenger passenger) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<Passenger> getPassengerList() {
+		return passengerDao.getPassengerList();
 	}
 
 }

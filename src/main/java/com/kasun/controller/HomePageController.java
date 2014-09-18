@@ -128,6 +128,12 @@ public class HomePageController {
 		List<User> userList = userService.getUserList();
 		return new ModelAndView("userList", "userList", userList);
 	}
+	
+	@RequestMapping("/getPassengerList")
+	public ModelAndView getPassengerLIst() {
+		List<Passenger> passengerList = passengerService.getPassengerList();
+		return new ModelAndView("passengerList", "passengerList", passengerList);
+	}
 
 	@RequestMapping("/users")
 	public String usersPage() {

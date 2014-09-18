@@ -1,8 +1,12 @@
 package com.kasun.dao;
 
+import java.util.List;
+
 import com.kasun.domain.Passenger;
 
 public interface PassengerDao {
+	
+	public List<Passenger> getPassengerList();
 	
 	public void insertData(Passenger passenger);
 	

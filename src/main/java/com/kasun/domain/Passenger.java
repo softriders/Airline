@@ -8,8 +8,6 @@ public class Passenger {
 	public String mobile_num;
 	public String booking_id;
 	
-	
-	
 	public Passenger() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -71,7 +69,4 @@ public class Passenger {
 	public void setBooking_id(String ticket_id) {
 		this.booking_id = ticket_id;
 	}
-	
-	
-
 }
