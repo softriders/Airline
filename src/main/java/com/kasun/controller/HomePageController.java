@@ -247,7 +247,5 @@ public class HomePageController {
 			passengerService.insertData(passenger);
 		}
 		return "redirect:/finalpage";
-	}
-	
-	
+	}	
 }

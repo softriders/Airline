@@ -21,7 +21,7 @@
 	<h1 style="text-align: center;">Enter Your Details</h1>
 	
 	<div class="col-md-4 col-md-offset-4 well">
-	<form class="form-horizontal" role="form">
+	<form:form method="post" action="/insertpassenger" modelAttribute="passenger" class="form-horizontal" role="form">
 	  <div class="form-group">
 		<label class="col-sm-2 control-label">NIC Number</label>
 		<div class="col-sm-10">
