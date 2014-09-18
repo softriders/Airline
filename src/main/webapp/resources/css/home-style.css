@@ -1,0 +1,19 @@
+
+.body-style{
+	background-image:url(../images/airplane.jpg); 
+	background-size: 100% 100%; 
+	background-repeat: no-repeat;
+
+	}
+.form-style{
+	background-color: rgba(184, 201, 249, 0.9);
+	//background-color: white;
+	padding:4px 4px 4px 4px;
+	margin: 4px 4px 6px 4px;
+}
+.heading1{
+	text-align:center; 
+	font-color: white;
+	font-weight: bolder;
+}
+
