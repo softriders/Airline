@@ -52,10 +52,10 @@ td {
 					<td>${serchresult.flight_id}</td>
 					<td>${serchresult.time}</td>
 					<td>${serchresult.price}</td>
-					<td><a href="buyTicket?travel_id=${FlightSerchResult.travel_id}">Buy Ticket</a></td>
+					<td><a href="buyTicket?travel_id=${serchresult.travel_id}">Buy Ticket</a></td>
 				</tr>
 			</c:forEach>
-			<tr><td colspan="9"><a href="registertravel">Search Again</a></td></tr>
+			<tr><td colspan="9"><a href="http://localhost:8080/Airline/">Search Again</a></td></tr>
 		</table>
 
 	</center>

@@ -18,63 +18,26 @@
 </head>
 
 <body>
-<ul class="nav nav-pills">
-			  <li class="active"><a href="http://localhost:8080/Airline"><i class="fa fa-home"></i>Home</a></li>
-			  <li><a href="#">Reservations</a></li>
-			  <li><a href="#">About Us</a></li>
-		</ul>
+	<a href="http://localhost:8080/Airline/">Home</a>
 	<h1 style="text-align: center;">Enter Your Details</h1>
+	<hr></hr>
+	<div style="text-align:center" class="col-md-4 col-md-offset-4 well">
 	
-	<div class="col-md-4 col-md-offset-4 well">
-	<form:form method="post" action="/insertpassenger" modelAttribute="passenger" class="form-horizontal" role="form">
-	  <div class="form-group">
-		<label class="col-sm-2 control-label">NIC Number</label>
-		<div class="col-sm-10">
-		  <input type="text" class="form-control">
-		</div>
-	  </div>
-	  <div class="form-group">
-		<label class="col-sm-2 control-label">Name</label>
-		<div class="col-sm-10">
-		  <input type="text" class="form-control">
-		</div>
-	  </div>
-	  <div class="form-group">
-		<label class="col-sm-2 control-label">Address</label>
-		<div class="col-sm-10">
-		  <input type="text" class="form-control">
-		</div>
-	  </div>
-	  <div class="form-group">
-		<label class="col-sm-2 control-label">TP Number</label>
-		<div class="col-sm-10">
-		  <input type="text" class="form-control">
-		</div>
-	  </div>
-	  <div class="form-group">
-		<label class="col-sm-2 control-label">Payment Method</label>
-		<div class="col-sm-10">
-			<select name="paymentMethod" id="paymentMethod" class="col-sm-12 form-control">
-				<option selected value="payPal">PayPal</option>
-				<option value="visa">Visa</option>
-				<option value="masterCard">Master Card</option>
-				<option value=" americanExpress">American Express</option>
-			</select> 
-        </div>  
-	  </div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Card Number</label>
-		<div class="col-sm-10">
-		  <input type="text" class="form-control">
-		</div>
-	  </div>
-
-	  <div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
-		  <button type="submit" class="btn btn-Primary">Buy Ticket</button>
-		</div>
-	  </div>
-	</form>
+			<form:form method="post" action="/insertpassenger" modelAttribute="passenger">
+	
+				ID Number: <input type="text" name="id"><br>
+				
+				Full Name: <input type="text" name="name"><br>
+				
+				Address: <input type="text" name="address"><br>
+				
+				TP Number: <input type="text" name="mobile_num"><br>
+				
+				Bank Card Number: <input type="text" name=""><br>
+				
+				 <input type="submit" value="Submit">
+				
+			</form:form>
 	</div>
 
 </body>

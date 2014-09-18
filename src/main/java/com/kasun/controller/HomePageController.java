@@ -33,9 +33,10 @@ import org.slf4j.LoggerFactory;
 
 @Controller
 public class HomePageController {
-	
-	private static final Logger log = LoggerFactory.getLogger(HomePageController.class);
-	
+
+	private static final Logger log = LoggerFactory
+			.getLogger(HomePageController.class);
+
 	public static int children;
 	public static int adults;
 
@@ -44,10 +45,10 @@ public class HomePageController {
 
 	@Autowired
 	TravelService travelService;
-	
+
 	@Autowired
 	PassengerService passengerService;
-	
+
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -144,8 +145,8 @@ public class HomePageController {
 	@RequestMapping("/serchFlights")
 	public ModelAndView serchFlights(@ModelAttribute SearchTravel searchTravel) {
 		adults = searchTravel.adults;
-		children= searchTravel.children;
-		
+		children = searchTravel.children;
+
 		List<FlightSerchResult> flightSerchResultList = travelService
 				.getSerchedTravelList(searchTravel);
 
@@ -177,16 +178,17 @@ public class HomePageController {
 		return new ModelAndView("edit", "map", map);
 
 	}
-	
+
 	@RequestMapping("/edittravel")
 	public ModelAndView editTravel(@RequestParam String id,
 			@ModelAttribute Travel travel) {
 
 		travel = travelService.getTravel(id);
-		
-		log.info("Selected Travel ID: "+travel.travel_id);
-		
-		log.info("Travel Path "+travel.leaving_from+" from going to "+travel.going_to);
+
+		log.info("Selected Travel ID: " + travel.travel_id);
+
+		log.info("Travel Path " + travel.leaving_from + " from going to "
+				+ travel.going_to);
 
 		List<String> cityList = new ArrayList<String>();
 
@@ -209,20 +211,23 @@ public class HomePageController {
 		userService.updateData(user);
 		return "redirect:/getList";
 	}
-	
+
 	@RequestMapping("/buyTicket")
-	public String buyTicket(@ModelAttribute User user) {
+	public String buyTicket(@ModelAttribute String id) {
+		log.info("Buy Ticket Travel ID: " + id);
 		return "buyTicket";
 	}
-	
+
 	@RequestMapping("/updatetravel")
 	public String updateTravel(@ModelAttribute Travel travel) {
-		log.info("travel update in controller, travel id: "+travel.getTravel_id());
-		log.info("travel update in controller, flight id: "+travel.getFlight_num());
+		log.info("travel update in controller, travel id: "
+				+ travel.getTravel_id());
+		log.info("travel update in controller, flight id: "
+				+ travel.getFlight_num());
 		travelService.updateData(travel);
 		return "redirect:/getTravelList";
 	}
-	
+
 	@RequestMapping("/deletetravel")
 	public String deleteTravel(@RequestParam String id) {
 		log.info("id = " + id);
@@ -236,13 +241,13 @@ public class HomePageController {
 		userService.deleteData(id);
 		return "redirect:/getList";
 	}
-	
+
 	@RequestMapping("/insertpassenger")
-	public String inserPassenger(@ModelAttribute Passenger passenger) {
-		log.info("Passenger_ID: Before Null check " + passenger.getId());
+	public String insertPassenger(@ModelAttribute Passenger passenger) {
+		passenger.setBooking_id("TKT_01_111");
 		if (passenger != null) {
 			passengerService.insertData(passenger);
 		}
-		return "redirect:/finalpage";
-	}	
+		return "finalpage";
+	}
 }

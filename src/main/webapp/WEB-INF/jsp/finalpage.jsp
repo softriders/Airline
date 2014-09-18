@@ -7,9 +7,9 @@
 <title></title>
 
 <body>
-
+<a href="http://localhost:8080/Airline/">Home</a>
 <h1>Thank You!!!<h1>
-
+<hr></hr>
 </body>
 
 </html>

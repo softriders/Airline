@@ -6,7 +6,23 @@ public class Passenger {
 	public String name;
 	public String address;
 	public String mobile_num;
-	//public String ticket_id;
+	public String booking_id;
+	
+	
+	
+	public Passenger() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Passenger(String id, String name, String address, String mobile_num, String booking_id) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.mobile_num = mobile_num;
+		this.booking_id = booking_id;
+	}
 	
 	public Passenger(String id, String name, String address, String mobile_num) {
 		super();
@@ -14,7 +30,6 @@ public class Passenger {
 		this.name = name;
 		this.address = address;
 		this.mobile_num = mobile_num;
-		//this.ticket_id = ticket_id;
 	}
 
 	public String getId() {
@@ -49,13 +64,13 @@ public class Passenger {
 		this.mobile_num = mobile_num;
 	}
 
-//	public String getTicket_id() {
-//		return ticket_id;
-//	}
-//
-//	public void setTicket_id(String ticket_id) {
-//		this.ticket_id = ticket_id;
-//	}
+	public String getBooking_id() {
+		return booking_id;
+	}
+
+	public void setBooking_id(String ticket_id) {
+		this.booking_id = ticket_id;
+	}
 	
 	
 

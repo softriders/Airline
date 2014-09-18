@@ -30,10 +30,11 @@ td {
 </style>
 </head>
 <body>
+<a href="http://localhost:8080/Airline/">Home</a>
 	<center>
 		<br /> <br /> <br /> <b>Travel
 			List | Smart Fly </b><br /> <br />
-			
+		<hr></hr>
 		<table border="1">
 			<tr>
 				<td class="heading">Travel ID</td>

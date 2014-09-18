@@ -15,14 +15,14 @@ public class PassengerDaoImpl implements PassengerDao {
 	@Override
 	public void insertData(Passenger passenger) {
 		String sql = "INSERT INTO Passenger "
-				+ "(ID,Name,Address, TP_Num, Ticket_ID) VALUES (?, ?, ?, ?)";
+				+ "(ID,Name,Address, TP_Num, Booking_ID) VALUES (?, ?, ?, ?,?)";
 		
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
 		jdbcTemplate.update(
 				sql,
 				new Object[] {passenger.getId(), passenger.getName(),
-						passenger.getAddress(), passenger.getMobile_num()});
+						passenger.getAddress(), passenger.getMobile_num() , passenger.getBooking_id()});
 
 	}
 
