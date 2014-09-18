@@ -18,6 +18,11 @@
 </head>
 
 <body>
+<ul class="nav nav-pills">
+			  <li class="active"><a href="http://localhost:8080/Airline"><i class="fa fa-home"></i>Home</a></li>
+			  <li><a href="#">Reservations</a></li>
+			  <li><a href="#">About Us</a></li>
+		</ul>
 	<h1 style="text-align: center;">Enter Your Details</h1>
 	
 	<div class="col-md-4 col-md-offset-4 well">
