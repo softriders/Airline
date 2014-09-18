@@ -27,7 +27,7 @@
                         $(".visibility-js").hide("fast");
 
                     }
-                });
+                });well
             });
 
         </script>
@@ -49,7 +49,7 @@
 
        
 
-        <div class="form-style well col-md-12">
+        <div class="form-style well1 col-md-12">
             <div class="col-md-9">
 			<h2 class="col-md-offset-2">Enter Details</h2>
 

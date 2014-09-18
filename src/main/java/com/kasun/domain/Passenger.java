@@ -5,17 +5,16 @@ public class Passenger {
 	public String id;
 	public String name;
 	public String address;
-	public int mobile_num;
-	public String ticket_id;
+	public String mobile_num;
+	//public String ticket_id;
 	
-	public Passenger(String id, String name, String address, int mobile_num,
-			String ticket_id) {
+	public Passenger(String id, String name, String address, String mobile_num) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.mobile_num = mobile_num;
-		this.ticket_id = ticket_id;
+		//this.ticket_id = ticket_id;
 	}
 
 	public String getId() {
@@ -42,21 +41,21 @@ public class Passenger {
 		this.address = address;
 	}
 
-	public int getMobile_num() {
+	public String getMobile_num() {
 		return mobile_num;
 	}
 
-	public void setMobile_num(int mobile_num) {
+	public void setMobile_num(String mobile_num) {
 		this.mobile_num = mobile_num;
 	}
 
-	public String getTicket_id() {
-		return ticket_id;
-	}
-
-	public void setTicket_id(String ticket_id) {
-		this.ticket_id = ticket_id;
-	}
+//	public String getTicket_id() {
+//		return ticket_id;
+//	}
+//
+//	public void setTicket_id(String ticket_id) {
+//		this.ticket_id = ticket_id;
+//	}
 	
 	
 

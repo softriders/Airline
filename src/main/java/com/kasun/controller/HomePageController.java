@@ -146,9 +146,6 @@ public class HomePageController {
 		adults = searchTravel.adults;
 		children= searchTravel.children;
 		
-		log.info("Serching Travels");
-		log.info("searchTravel going to: "
-				+ searchTravel.getGoingto());
 		List<FlightSerchResult> flightSerchResultList = travelService
 				.getSerchedTravelList(searchTravel);
 
@@ -242,7 +239,7 @@ public class HomePageController {
 	
 	@RequestMapping("/insertpassenger")
 	public String inserPassenger(@ModelAttribute Passenger passenger) {
-		System.out.println("Passenger_ID: Before Null check " + passenger.getId());
+		log.info("Passenger_ID: Before Null check " + passenger.getId());
 		if (passenger != null) {
 			passengerService.insertData(passenger);
 		}

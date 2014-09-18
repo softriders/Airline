@@ -29,7 +29,7 @@ td {
 </head>
 <body>
 	<center>
-		<br /> <br /> <br /> <b>Being Java Guys | Registration Form </b> <br />
+		<br /> <br /> <br /> <b>Fly Registration Form </b> <br />
 		<br />
 		<div>
 			<form:form method="post" action="/insert" modelAttribute="user">
