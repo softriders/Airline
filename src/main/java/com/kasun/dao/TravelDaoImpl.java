@@ -11,10 +11,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import com.kasun.domain.FlightSerchResult;
 import com.kasun.domain.SearchTravel;
 import com.kasun.domain.Travel;
-import com.kasun.domain.User;
 import com.kasun.jdbc.FlightSerchResultRowMapper;
 import com.kasun.jdbc.TravelRowMapper;
-import com.kasun.jdbc.UserRowMapper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

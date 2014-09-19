@@ -18,15 +18,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kasun.dao.TravelDaoImpl;
 import com.kasun.domain.FlightSerchResult;
 import com.kasun.domain.Passenger;
 import com.kasun.domain.SearchTravel;
 import com.kasun.domain.Travel;
-import com.kasun.domain.User;
 import com.kasun.services.PassengerService;
 import com.kasun.services.TravelService;
-import com.kasun.services.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,9 +38,6 @@ public class HomePageController {
 	public static int adults;
 
 	@Autowired
-	UserService userService;
-
-	@Autowired
 	TravelService travelService;
 
 	@Autowired
@@ -54,25 +48,6 @@ public class HomePageController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		sdf.setLenient(true);
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
-	}
-
-	@RequestMapping("/register")
-	public ModelAndView registerUser(@ModelAttribute User user) {
-
-		List<String> genderList = new ArrayList<String>();
-		genderList.add("male");
-		genderList.add("female");
-
-		List<String> cityList = new ArrayList<String>();
-		cityList.add("Badulla");
-		cityList.add("Colombo");
-		cityList.add("Kandy");
-		cityList.add("Jafna");
-
-		Map<String, List> map = new HashMap<String, List>();
-		map.put("genderList", genderList);
-		map.put("cityList", cityList);
-		return new ModelAndView("register", "map", map);
 	}
 
 	@RequestMapping(value = "/adminlogin", method = RequestMethod.POST)
@@ -100,17 +75,6 @@ public class HomePageController {
 		return new ModelAndView("registertravel", "map", map);
 	}
 
-	@RequestMapping("/insert")
-	public String inserData(@ModelAttribute User user) {
-		System.out.println("User_ID: Before Null check " + user.getUserId());
-		if (user != null) {
-			System.out.println("User_ID: " + user.getUserId());
-			System.out.println("User_FirstName: " + user.getFirstName());
-			userService.insertData(user);
-		}
-		return "redirect:/getList";
-	}
-
 	@RequestMapping("/travelinsert")
 	public String inserTravel(@ModelAttribute Travel travel) {
 		System.out.println("Travel_ID: Before Null check "
@@ -123,21 +87,10 @@ public class HomePageController {
 		return "redirect:/getTravelList";
 	}
 
-	@RequestMapping("/getList")
-	public ModelAndView getUserLIst() {
-		List<User> userList = userService.getUserList();
-		return new ModelAndView("userList", "userList", userList);
-	}
-	
 	@RequestMapping("/getPassengerList")
 	public ModelAndView getPassengerLIst() {
 		List<Passenger> passengerList = passengerService.getPassengerList();
 		return new ModelAndView("passengerList", "passengerList", passengerList);
-	}
-
-	@RequestMapping("/users")
-	public String usersPage() {
-		return ("users");
 	}
 
 	@RequestMapping("/getTravelList")
@@ -158,31 +111,6 @@ public class HomePageController {
 
 		return new ModelAndView("flightSerchResultList",
 				"flightSerchResultList", flightSerchResultList);
-	}
-
-	@RequestMapping("/edit")
-	public ModelAndView editUser(@RequestParam String id,
-			@ModelAttribute User user) {
-
-		user = userService.getUser(id);
-
-		List<String> genderList = new ArrayList<String>();
-		genderList.add("male");
-		genderList.add("female");
-
-		List<String> cityList = new ArrayList<String>();
-		cityList.add("delhi");
-		cityList.add("gurgaon");
-		cityList.add("meerut");
-		cityList.add("noida");
-
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("genderList", genderList);
-		map.put("cityList", cityList);
-		map.put("user", user);
-
-		return new ModelAndView("edit", "map", map);
-
 	}
 
 	@RequestMapping("/edittravel")
@@ -212,12 +140,6 @@ public class HomePageController {
 
 	}
 
-	@RequestMapping("/update")
-	public String updateUser(@ModelAttribute User user) {
-		userService.updateData(user);
-		return "redirect:/getList";
-	}
-
 	@RequestMapping("/buyTicket")
 	public String buyTicket(@ModelAttribute String id) {
 		log.info("Buy Ticket Travel ID: " + id);
@@ -239,13 +161,6 @@ public class HomePageController {
 		log.info("id = " + id);
 		travelService.deleteData(id);
 		return "redirect:/getTravelList";
-	}
-
-	@RequestMapping("/delete")
-	public String deleteUser(@RequestParam String id) {
-		log.info("id = " + id);
-		userService.deleteData(id);
-		return "redirect:/getList";
 	}
 
 	@RequestMapping("/insertpassenger")

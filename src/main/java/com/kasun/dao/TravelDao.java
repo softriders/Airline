@@ -5,7 +5,6 @@ import java.util.List;
 import com.kasun.domain.FlightSerchResult;
 import com.kasun.domain.SearchTravel;
 import com.kasun.domain.Travel;
-import com.kasun.domain.User;
 
 public interface TravelDao {
 	

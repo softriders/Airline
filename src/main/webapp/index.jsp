@@ -145,7 +145,7 @@
 				<form action="/Airline/getTravelList" method="post" role="form">
 					<button type="submit" class="btn btn-success">List of All Travel</button>
 				</form>
-				<div>
+				<div><br>
 				
 				<form action="/Airline/getPassengerList" method="post" role="form">
 					<button type="submit" class="btn btn-success">List of All Passenger</button>

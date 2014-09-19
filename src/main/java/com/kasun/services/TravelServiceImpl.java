@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kasun.dao.TravelDao;
-import com.kasun.dao.UserDaoImpl;
 import com.kasun.domain.FlightSerchResult;
 import com.kasun.domain.SearchTravel;
 import com.kasun.domain.Travel;
